@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://xap573c4x7m7"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ghwal"]
+[ext_resource type="Texture2D" uid="uid://bktlavm5sbydi" path="res://textures/aura.svg" id="2_fhlta"]
+[ext_resource type="Texture2D" uid="uid://ruhdndsmjcf5" path="res://textures/gaze.svg" id="3_1hdu4"]
+[ext_resource type="Texture2D" uid="uid://cqrq1e01d5oyb" path="res://sprites/eye_man_animations/eye_man.svg" id="4_fdkxf"]
+[ext_resource type="Texture2D" uid="uid://cc7cqprsfnnbe" path="res://sprites/eye_man_animations/eye_man_idle.svg" id="4_nquh2"]
+[ext_resource type="Texture2D" uid="uid://b3y5evw5k6yun" path="res://sprites/pupil.svg" id="5_iqjbo"]
+[ext_resource type="Texture2D" uid="uid://bhgbrk800sl5t" path="res://sprites/eye_man_animations/eye_man_walk_02.svg" id="5_ycvvu"]
+[ext_resource type="Texture2D" uid="uid://hfymqokna040" path="res://sprites/eye_man_animations/eye_man_walk_015.svg" id="6_33x3c"]
+[ext_resource type="Texture2D" uid="uid://d3nj2r6alee6s" path="res://sprites/eye_man_animations/eye_man_walk_03.svg" id="6_qchui"]
+[ext_resource type="Texture2D" uid="uid://dgpvejx82t00t" path="res://sprites/eye_man_animations/eye_man_walk_04.svg" id="7_hlmq4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ta68x"]
+radius = 28.0
+height = 120.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hiwek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nquh2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fdkxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_33x3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ycvvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qchui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hlmq4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[node name="player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ghwal")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_ta68x")
+
+[node name="Aura" type="PointLight2D" parent="CharacterBody2D"]
+texture = ExtResource("2_fhlta")
+texture_scale = 0.06
+
+[node name="player_sprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_hiwek")
+animation = &"walk"
+frame_progress = 0.550563
+
+[node name="pupil_sprite" type="Sprite2D" parent="CharacterBody2D/player_sprite"]
+position = Vector2(0, -30)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_iqjbo")
+
+[node name="GazeLight" type="PointLight2D" parent="CharacterBody2D/player_sprite/pupil_sprite"]
+scale = Vector2(33.3333, 6.66667)
+texture = ExtResource("3_1hdu4")
+offset = Vector2(100, 0)
+texture_scale = 0.1
+
+[node name="GazeRay" type="RayCast2D" parent="CharacterBody2D/player_sprite/pupil_sprite"]
+scale = Vector2(6.66667, 6.66667)
+target_position = Vector2(50, 0)

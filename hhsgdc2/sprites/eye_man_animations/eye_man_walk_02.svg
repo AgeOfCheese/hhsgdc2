@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32mm"
+   height="32mm"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="eye_man_walk_02.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="4.0214614"
+     inkscape:cx="89.519696"
+     inkscape:cy="90.265694"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke-width:0.12895"
+       id="path1"
+       cx="16"
+       cy="11.611644"
+       r="7.7758961" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.13417"
+       id="path2"
+       cy="11.60164"
+       cx="16"
+       r="7.2899027" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke-width:0.187131"
+       id="rect2"
+       width="0.65792829"
+       height="7.8000002"
+       x="19.436749"
+       y="13.984923"
+       inkscape:transform-center-x="1.1263551"
+       inkscape:transform-center-y="3.7149157"
+       transform="rotate(16.38164)" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke-width:0.187131"
+       id="rect3"
+       width="0.65792829"
+       height="7.8000002"
+       x="-6.2935419"
+       y="24.914679"
+       inkscape:transform-center-x="-3.1470179"
+       inkscape:transform-center-y="2.1626121"
+       transform="rotate(-55.382637)" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+       id="path3"
+       d="m 9.7044425,21.349773 a 4.0133624,6.0858369 0 0 1 -1.592e-4,0.05421 z"
+       sodipodi:type="arc"
+       sodipodi:arc-type="chord"
+       sodipodi:open="true"
+       sodipodi:start="0"
+       sodipodi:end="0.0089084503"
+       sodipodi:ry="6.0858369"
+       sodipodi:rx="4.0133624"
+       sodipodi:cy="21.349773"
+       sodipodi:cx="5.6910801" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke-width:0.403237"
+       id="ellipse4"
+       cx="23.89702"
+       cy="31.830231"
+       rx="1.3782307"
+       ry="0.49430218"
+       inkscape:transform-center-x="-0.90908897"
+       inkscape:transform-center-y="8.1842681"
+       transform="rotate(-0.72318975)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke-width:0.403237"
+       id="ellipse5"
+       cx="29.935459"
+       cy="3.6073358"
+       rx="1.3782307"
+       ry="0.49430218"
+       transform="rotate(72.751818)"
+       inkscape:transform-center-x="7.3772642"
+       inkscape:transform-center-y="3.1905363" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke-width:0.187131"
+       id="rect1"
+       width="0.65792829"
+       height="7.8000002"
+       x="22.720797"
+       y="23.816462"
+       inkscape:transform-center-x="-0.0099741087"
+       inkscape:transform-center-y="4.0815206"
+       transform="rotate(-0.72318975)" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke-width:0.187;stroke-dasharray:none;paint-order:normal"
+       id="rect4"
+       width="0.65792829"
+       height="7.8000002"
+       x="28.759235"
+       y="-4.4064407"
+       inkscape:transform-center-y="1.161598"
+       transform="rotate(72.751818)"
+       inkscape:transform-center-x="3.6997105"
+       ry="0" />
+    <circle
+       style="fill:#000000;stroke-width:0.187"
+       id="path5"
+       cx="12.846042"
+       cy="26.465519"
+       r="0.2965813" />
+    <circle
+       style="fill:#000000;stroke-width:0.187"
+       id="path6"
+       cx="23.50843"
+       cy="23.44446"
+       r="0.29948896" />
+  </g>
+</svg>

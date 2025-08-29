@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b526djdgcfjs7"]
+
+[ext_resource type="Script" path="res://scripts/fadeable_object.gd" id="1_mvr8r"]
+[ext_resource type="Texture2D" uid="uid://c0vbbacdkp8m8" path="res://sprites/icon.svg" id="2_laudl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_163mi"]
+size = Vector2(127, 127)
+
+[node name="FadeableObject" type="Node2D" groups=["fadeable"]]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_mvr8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_laudl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_163mi")

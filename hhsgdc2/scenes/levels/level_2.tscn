@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://bvaduceop1ey6"]
+
+[ext_resource type="Texture2D" uid="uid://c0vbbacdkp8m8" path="res://sprites/icon.svg" id="1_j75tp"]
+[ext_resource type="PackedScene" uid="uid://xap573c4x7m7" path="res://scenes/player.tscn" id="2_2a5o1"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="3_haw7t"]
+[ext_resource type="PackedScene" uid="uid://b526djdgcfjs7" path="res://scenes/FadeableObject.tscn" id="4_nfa8e"]
+[ext_resource type="Texture2D" uid="uid://diovoikhb2yf7" path="res://sprites/exit.svg" id="5_orj3i"]
+[ext_resource type="Texture2D" uid="uid://c2e7yc7wst38c" path="res://sprites/entrance.svg" id="6_mfa2u"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k3d32"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 324, 1)
+angle_min = 1.07288e-05
+angle_max = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.08
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba5sb"]
+size = Vector2(1150.5, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_433fd"]
+size = Vector2(54, 101)
+
+[node name="level_1" type="Node2D"]
+
+[node name="DustMotes" type="GPUParticles2D" parent="."]
+position = Vector2(576, 374)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_k3d32")
+texture = ExtResource("1_j75tp")
+lifetime = 10.0
+visibility_rect = Rect2(-576, -374, 1152, 648)
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ground"]
+offset_top = 611.0
+offset_right = 1150.0
+offset_bottom = 651.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(574.75, 631)
+shape = SubResource("RectangleShape2D_ba5sb")
+
+[node name="player" parent="." instance=ExtResource("2_2a5o1")]
+position = Vector2(10, 546)
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("3_haw7t")
+
+[node name="level_objects" type="Node2D" parent="."]
+
+[node name="FadeableObject" parent="level_objects" instance=ExtResource("4_nfa8e")]
+position = Vector2(528, 525)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject2" parent="level_objects" instance=ExtResource("4_nfa8e")]
+position = Vector2(649, 459)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject5" parent="level_objects" instance=ExtResource("4_nfa8e")]
+position = Vector2(760, 389)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject6" parent="level_objects" instance=ExtResource("4_nfa8e")]
+position = Vector2(1025, 518)
+scale = Vector2(1.98, 1.48574)
+
+[node name="FadeableObject4" parent="level_objects" instance=ExtResource("4_nfa8e")]
+position = Vector2(419, 466)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject3" parent="level_objects" instance=ExtResource("4_nfa8e")]
+position = Vector2(1062, 394)
+scale = Vector2(1.38, 0.5)
+
+[node name="level_exit" type="Area2D" parent="level_objects"]
+position = Vector2(1122, 301)
+
+[node name="Exit" type="Sprite2D" parent="level_objects/level_exit"]
+position = Vector2(0, 1)
+texture = ExtResource("5_orj3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_objects/level_exit"]
+position = Vector2(1, 10.5)
+shape = SubResource("RectangleShape2D_433fd")
+
+[node name="Entrance" type="Sprite2D" parent="level_objects"]
+z_index = -2
+position = Vector2(29, 550)
+texture = ExtResource("6_mfa2u")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.0214346, 0.0214346, 0.0214346, 1)

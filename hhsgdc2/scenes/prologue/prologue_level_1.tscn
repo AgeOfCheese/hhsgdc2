@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=3 uid="uid://wgkm1lamq1fb"]
+
+[ext_resource type="Texture2D" uid="uid://c2e7yc7wst38c" path="res://sprites/entrance.svg" id="1_1koev"]
+[ext_resource type="Texture2D" uid="uid://c0vbbacdkp8m8" path="res://sprites/icon.svg" id="1_7lxaq"]
+[ext_resource type="Script" path="res://scenes/prologue/prologue_level_1.gd" id="1_vrlmb"]
+[ext_resource type="PackedScene" uid="uid://xap573c4x7m7" path="res://scenes/player.tscn" id="2_ldn8o"]
+[ext_resource type="Texture2D" uid="uid://diovoikhb2yf7" path="res://sprites/exit.svg" id="4_msum1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t38ie"]
+size = Vector2(54.5, 99)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4awnn"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 314, 1)
+angle_min = 1.07288e-05
+angle_max = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.08
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d20jx"]
+size = Vector2(1150.5, 40)
+
+[node name="PrologueLevel1" type="Node2D"]
+script = ExtResource("1_vrlmb")
+
+[node name="exit" type="Area2D" parent="."]
+
+[node name="Exit" type="Sprite2D" parent="exit"]
+position = Vector2(32, 131)
+texture = ExtResource("4_msum1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+position = Vector2(32.75, 139.5)
+shape = SubResource("RectangleShape2D_t38ie")
+
+[node name="Entrance" type="Sprite2D" parent="."]
+position = Vector2(32, 553)
+texture = ExtResource("1_1koev")
+
+[node name="DustMotes" type="GPUParticles2D" parent="."]
+position = Vector2(576, 334)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_4awnn")
+texture = ExtResource("1_7lxaq")
+lifetime = 10.0
+visibility_rect = Rect2(-576, -374, 1152, 648)
+
+[node name="player" parent="." instance=ExtResource("2_ldn8o")]
+position = Vector2(30, 555)
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ground"]
+offset_top = 611.0
+offset_right = 1150.0
+offset_bottom = 651.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(574.75, 631)
+shape = SubResource("RectangleShape2D_d20jx")
+
+[node name="platforms" type="Node2D" parent="."]
+
+[node name="plaform" type="StaticBody2D" parent="platforms"]
+position = Vector2(297, 520)
+scale = Vector2(0.16, 0.84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/plaform"]
+shape = SubResource("RectangleShape2D_d20jx")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="platforms/plaform"]
+offset_left = -575.0
+offset_top = -20.2381
+offset_right = -535.0
+offset_bottom = 19.7619
+scale = Vector2(28.7501, 1)
+metadata/_edit_lock_ = true
+
+[node name="plaform2" type="StaticBody2D" parent="platforms"]
+position = Vector2(597, 444)
+scale = Vector2(-0.0800018, 0.84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/plaform2"]
+shape = SubResource("RectangleShape2D_d20jx")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="platforms/plaform2"]
+offset_left = -575.0
+offset_top = -20.2381
+offset_right = -535.0
+offset_bottom = 19.7619
+scale = Vector2(28.7501, 1)
+metadata/_edit_lock_ = true
+
+[node name="plaform3" type="StaticBody2D" parent="platforms"]
+position = Vector2(811, 353)
+scale = Vector2(0.119995, 0.84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/plaform3"]
+shape = SubResource("RectangleShape2D_d20jx")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="platforms/plaform3"]
+offset_left = -575.0
+offset_top = -20.2381
+offset_right = -535.0
+offset_bottom = 19.7619
+scale = Vector2(28.7501, 1)
+metadata/_edit_lock_ = true
+
+[node name="plaform4" type="StaticBody2D" parent="platforms"]
+position = Vector2(329, 207)
+scale = Vector2(0.56, 0.84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/plaform4"]
+shape = SubResource("RectangleShape2D_d20jx")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="platforms/plaform4"]
+offset_left = -575.0
+offset_top = -20.2381
+offset_right = -535.0
+offset_bottom = 19.7619
+scale = Vector2(28.7501, 1)
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="exit" to="." method="_on_exit_area_entered"]

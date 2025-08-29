@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16mm"
+   height="16mm"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="mist.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="5.6872054"
+     inkscape:cx="-0.87916642"
+     inkscape:cy="45.716654"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1"
+       style="fill:#999999;stroke-width:0.19653;fill-opacity:0.39959839"
+       d="M 7.051766 3.7568766 A 4.5267859 4.3731203 0 0 0 3.4214966 5.5288615 A 3.8035715 3.1682811 0 0 0 2.5161255 6.2507812 A 3.8035715 3.1682811 0 0 0 -0.046508789 9.2454305 A 3.8035715 3.1682811 0 0 0 3.7568766 12.413713 A 3.8035715 3.1682811 0 0 0 5.2730632 12.151196 A 4.5267859 4.3731203 0 0 0 7.051766 12.503113 A 4.5267859 4.3731203 0 0 0 8.6356486 12.226644 A 4.5267859 3.9715073 0 0 0 9.8376424 12.369271 A 4.5267859 3.9715073 0 0 0 11.718665 12.01012 A 6.2142854 3.1682811 0 0 0 15.864148 9.0227051 A 6.2142854 3.1682811 0 0 0 13.947986 6.7339559 A 4.5267859 3.9715073 0 0 0 9.8376424 4.4260864 A 4.5267859 3.9715073 0 0 0 9.479008 4.4384888 A 4.5267859 4.3731203 0 0 0 7.051766 3.7568766 z " />
+  </g>
+</svg>
