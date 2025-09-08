@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh0idxmrt0mwr"]
+[gd_scene load_steps=12 format=3 uid="uid://dh0idxmrt0mwr"]
 
-[ext_resource type="Texture2D" uid="uid://6yowjj4eqq6g" path="res://sprites/backdrops/pillars.svg" id="1_35fuv"]
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_lgmn8"]
 [ext_resource type="Texture2D" uid="uid://d2fcb88uncepj" path="res://particles/mist.svg" id="2_q0os8"]
 [ext_resource type="PackedScene" uid="uid://xap573c4x7m7" path="res://scenes/player.tscn" id="2_vtcyg"]
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="3_i0jki"]
 [ext_resource type="PackedScene" uid="uid://b526djdgcfjs7" path="res://scenes/FadeableObject.tscn" id="4_bb3q3"]
+[ext_resource type="Texture2D" uid="uid://diovoikhb2yf7" path="res://sprites/exit.svg" id="6_rcwn5"]
+[ext_resource type="Texture2D" uid="uid://c2e7yc7wst38c" path="res://sprites/entrance.svg" id="7_2d448"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k3d32"]
 particle_flag_disable_z = true
@@ -19,12 +21,14 @@ scale_max = 3.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba5sb"]
 size = Vector2(1150.5, 40)
 
-[node name="level_1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiqkn"]
+size = Vector2(54, 101)
 
-[node name="Pillars" type="Sprite2D" parent="."]
-position = Vector2(575.455, 325.565)
-scale = Vector2(-0.15895, 0.160237)
-texture = ExtResource("1_35fuv")
+[sub_resource type="LabelSettings" id="LabelSettings_evmg4"]
+font_size = 40
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_lgmn8")
 
 [node name="DustMotes" type="GPUParticles2D" parent="."]
 position = Vector2(576, 374)
@@ -61,9 +65,100 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(571, 423)
 scale = Vector2(0.5, 0.5)
 
+[node name="FadeableObject4" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(745, 357)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject5" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(621, 289)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject6" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(422, 320)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject7" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(233, 316)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject8" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(254, 196)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject9" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(485, 190)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject10" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(784, 514)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject11" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(916, 372)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject12" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(803, 209)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject13" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(952, 224)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject14" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(143, 434)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject15" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(142, 129)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject16" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(399, 105)
+rotation = 0.0209844
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject17" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(662, 106)
+rotation = 0.0209844
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject18" parent="level_objects" instance=ExtResource("4_bb3q3")]
+position = Vector2(959, 107)
+rotation = 0.0209844
+scale = Vector2(1.9464, 0.5)
+
 [node name="FadeableObject3" parent="level_objects" instance=ExtResource("4_bb3q3")]
 position = Vector2(413, 487)
 scale = Vector2(0.5, 0.5)
 
+[node name="Entrance" type="Sprite2D" parent="level_objects"]
+z_index = -3
+position = Vector2(42, 548)
+scale = Vector2(1.00691, 0.962555)
+texture = ExtResource("7_2d448")
+
+[node name="level_exit" type="Area2D" parent="level_objects"]
+z_index = -3
+position = Vector2(1122, 301)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_objects/level_exit"]
+position = Vector2(-67, -269)
+shape = SubResource("RectangleShape2D_hiqkn")
+
+[node name="Exit" type="Sprite2D" parent="level_objects/level_exit"]
+position = Vector2(-64, -278)
+texture = ExtResource("6_rcwn5")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1107.0
+offset_top = 2.0
+offset_right = 1147.0
+offset_bottom = 25.0
+label_settings = SubResource("LabelSettings_evmg4")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="level_objects/level_exit" to="LevelManager" method="_on_level_exit_body_entered"]

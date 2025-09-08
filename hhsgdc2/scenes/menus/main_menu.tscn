@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://deu7pnd78cmyy"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_abq8r"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_abq8r")
+
+[node name="Buttons" type="Node2D" parent="."]
+position = Vector2(579, 324)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="Buttons"]
+offset_left = -121.0
+offset_top = -87.0
+offset_right = -22.0
+offset_bottom = -56.0
+scale = Vector2(2.2369, 1.90703)
+text = "Level Select
+"
+
+[node name="Button3" type="Button" parent="Buttons"]
+offset_left = -121.0
+offset_top = -15.0
+offset_right = -22.0
+offset_bottom = 16.0
+scale = Vector2(2.2369, 1.90703)
+text = "Tutorial"
+
+[node name="Button2" type="Button" parent="Buttons"]
+offset_left = -124.0
+offset_top = 58.0
+offset_right = -25.0
+offset_bottom = 89.0
+scale = Vector2(2.2369, 1.90703)
+text = "Quit
+"
+
+[connection signal="pressed" from="Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Buttons/Button2" to="." method="_on_button_2_pressed"]

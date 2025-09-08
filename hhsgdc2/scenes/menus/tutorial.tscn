@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b081smtpglftg"]
+
+[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_k7451"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bf25t"]
+font_size = 12
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource("1_k7451")
+
+[node name="Buttons" type="Node2D" parent="."]
+position = Vector2(579, 324)
+metadata/_edit_lock_ = true
+
+[node name="Button2" type="Button" parent="Buttons"]
+offset_left = -57.0
+offset_top = 139.0
+offset_right = 5.0
+offset_bottom = 170.0
+scale = Vector2(2.2369, 1.90703)
+text = "Back"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 278.0
+offset_top = 99.0
+offset_right = 497.0
+offset_bottom = 216.0
+scale = Vector2(3.12739, 2.73837)
+text = "Space to jump (hold to control)
+A + D to move
+S to view phosphenes
+Move mouse to fade objects
+Keep track of the fade limit (top right)
+Get to the green door"
+label_settings = SubResource("LabelSettings_bf25t")
+
+[connection signal="pressed" from="Buttons/Button2" to="." method="_on_button_2_pressed"]

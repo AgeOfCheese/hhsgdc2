@@ -1,9 +1,10 @@
 extends Node
-@export var fade_limit: int = 5
+@export var fade_limit: int = 10000
+@onready var label = $"../Label"
 
-@export var next_level_scenes: Array[String] = ["res://scenes/level_1.tscn",  "res://scenes/level_2.tscn"]
-
-@export var tutorial_levels: Array[String] = ["res://scenes/prologue_level_1.tscn", "res://scenes/prologue_level_2.tscn"]
+#@export var next_level_scenes: Array[String] = ["res://scenes/level_1.tscn",  "res://scenes/level_2.tscn"]
+#
+#@export var tutorial_levels: Array[String] = ["res://scenes/prologue_level_1.tscn", "res://scenes/prologue_level_2.tscn"]
 
 var faded_object_count = 0
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +16,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if label:
+		label.set_text(str(fade_limit - faded_object_count))
+
 
 func _on_object_destroyed():
 	print("Object destroyed")
@@ -26,10 +29,20 @@ func _on_object_destroyed():
 func fail_level():
 	GameState._record_failure()
 	
-	var next_scene_path = next_level_scenes.pick_random()
-	get_tree().change_scene_to_file(next_scene_path)	
-	
-func succeed_level(is_tutorial_level: bool, current: int):
+
+
+func succeed_level(is_tutorial_level: bool):
 		if is_tutorial_level:
-			var next_scene_path = tutorial_levels[current+1]
-			get_tree().change_scene_to_file(next_scene_path)	
+			get_tree().change_scene_to_file("res://scenes/menus/menu.tscn")	
+		else:
+			get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
+
+
+func set_fade_limit(limit):
+	fade_limit = limit
+
+func _on_level_exit_body_entered(body):
+	print(body.get_name())
+	if body.get_name() == "CharacterBody2D":
+		succeed_level(false)
+	 # Replace with function body.
