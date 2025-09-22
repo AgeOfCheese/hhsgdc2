@@ -1,15 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://xap573c4x7m7"]
+[gd_scene load_steps=18 format=3 uid="uid://xap573c4x7m7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ghwal"]
 [ext_resource type="Texture2D" uid="uid://bktlavm5sbydi" path="res://textures/aura.svg" id="2_fhlta"]
 [ext_resource type="Texture2D" uid="uid://ruhdndsmjcf5" path="res://textures/gaze.svg" id="3_1hdu4"]
-[ext_resource type="Texture2D" uid="uid://cqrq1e01d5oyb" path="res://sprites/eye_man_animations/eye_man.svg" id="4_fdkxf"]
-[ext_resource type="Texture2D" uid="uid://cc7cqprsfnnbe" path="res://sprites/eye_man_animations/eye_man_idle.svg" id="4_nquh2"]
-[ext_resource type="Texture2D" uid="uid://b3y5evw5k6yun" path="res://sprites/pupil.svg" id="5_iqjbo"]
+[ext_resource type="Texture2D" uid="uid://cc7cqprsfnnbe" path="res://sprites/eye_man_animations/eye_man_idle.svg" id="4_fdkxf"]
+[ext_resource type="Texture2D" uid="uid://ddbcbng3imwev" path="res://one_bit_sprites/eye_man_one_bit.png" id="4_svkvi"]
+[ext_resource type="Texture2D" uid="uid://c65xaoiatdh0s" path="res://one_bit_sprites/eye_man_walk_01_one_bit.png" id="5_f7mvv"]
 [ext_resource type="Texture2D" uid="uid://bhgbrk800sl5t" path="res://sprites/eye_man_animations/eye_man_walk_02.svg" id="5_ycvvu"]
 [ext_resource type="Texture2D" uid="uid://hfymqokna040" path="res://sprites/eye_man_animations/eye_man_walk_015.svg" id="6_33x3c"]
+[ext_resource type="Texture2D" uid="uid://b1y4sjisjtr76" path="res://one_bit_sprites/eye_man_walk_01_one_bit (1).png" id="6_iuo50"]
 [ext_resource type="Texture2D" uid="uid://d3nj2r6alee6s" path="res://sprites/eye_man_animations/eye_man_walk_03.svg" id="6_qchui"]
 [ext_resource type="Texture2D" uid="uid://dgpvejx82t00t" path="res://sprites/eye_man_animations/eye_man_walk_04.svg" id="7_hlmq4"]
+[ext_resource type="Texture2D" uid="uid://whrmlmcwfq0l" path="res://one_bit_sprites/eye_man_walk_02_one_bit.png" id="7_p2cvt"]
+[ext_resource type="Texture2D" uid="uid://d00awrhudvd6p" path="res://one_bit_sprites/eye_man_walk_03_one_bit.png" id="8_cg680"]
+[ext_resource type="Texture2D" uid="uid://dp2p6h2804yme" path="res://one_bit_sprites/eye_man_walk_04_one_bit.png" id="9_5085a"]
+[ext_resource type="Texture2D" uid="uid://c0bvom74l4aht" path="res://one_bit_sprites/pupil_one_bit.png" id="9_w4m5l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ta68x"]
 radius = 28.0
@@ -19,10 +24,33 @@ height = 120.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_nquh2")
+"texture": ExtResource("4_fdkxf")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_svkvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f7mvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iuo50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p2cvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cg680")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5085a")
+}],
+"loop": true,
+"name": &"one_bit_walk",
 "speed": 5.0
 }, {
 "frames": [{
@@ -60,13 +88,13 @@ texture_scale = 0.06
 
 [node name="player_sprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_hiwek")
-animation = &"walk"
-frame_progress = 0.550563
+animation = &"one_bit_walk"
+frame_progress = 0.83349
 
 [node name="pupil_sprite" type="Sprite2D" parent="CharacterBody2D/player_sprite"]
 position = Vector2(0, -30)
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("5_iqjbo")
+texture = ExtResource("9_w4m5l")
 
 [node name="GazeLight" type="PointLight2D" parent="CharacterBody2D/player_sprite/pupil_sprite"]
 scale = Vector2(33.3333, 6.66667)
