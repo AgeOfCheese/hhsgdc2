@@ -20,6 +20,10 @@ config/icon="res://sprites/icon.svg"
 GameState="*res://scripts/game_state.gd"
 PhospheneManager="*res://scenes/PhospheneManager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="hhsgdc2"

@@ -67,6 +67,13 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	# Clamp player's position to prevent falling off the sides of the map.
+	# The level boundaries are hardcoded here based on the scenes provided.
+	var map_width = 1152.0
+	var player_width = 60.0 # Approximate width of the player's collision shape
+	
+	position.x = clamp(position.x, player_width / 2, map_width - player_width / 2)
+	
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	
 	var ray_direction: Vector2 = (mouse_pos - raycast.global_position).normalized()
@@ -87,7 +94,6 @@ func _physics_process(delta):
 	elif fading_object != null:
 		fading_object.gaze_exited()
 		fading_object = null
-			
 func _unhandled_input(event):
 	if event.is_action_pressed("toggle_eyes"):
 		eyes_are_open = !eyes_are_open
@@ -96,3 +102,6 @@ func _unhandled_input(event):
 			PhospheneManager.hide_phosphene()
 		elif !eyes_are_open:
 			PhospheneManager.trigger_phosphene_effect()
+func bounce():
+	print(velocity.y)
+	velocity.y = velocity.y* -1.0 - 50

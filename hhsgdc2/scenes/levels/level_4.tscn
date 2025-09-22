@@ -1,0 +1,169 @@
+[gd_scene load_steps=15 format=3 uid="uid://dh0idxmrt0mwr"]
+
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_gc5vj"]
+[ext_resource type="PackedScene" uid="uid://xap573c4x7m7" path="res://scenes/player.tscn" id="2_y044e"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="3_ma5ac"]
+[ext_resource type="Texture2D" uid="uid://diovoikhb2yf7" path="res://sprites/exit.svg" id="4_jw3cu"]
+[ext_resource type="Texture2D" uid="uid://c2e7yc7wst38c" path="res://sprites/entrance.svg" id="5_dn6ev"]
+[ext_resource type="PackedScene" uid="uid://b526djdgcfjs7" path="res://scenes/FadeableObject.tscn" id="6_ar7fm"]
+[ext_resource type="Texture2D" uid="uid://d2fcb88uncepj" path="res://particles/mist.svg" id="7_5tg47"]
+[ext_resource type="Texture2D" uid="uid://bhynfbwwkwmyn" path="res://sprites/blue_door.svg" id="8_lkcq4"]
+[ext_resource type="Texture2D" uid="uid://q1fbt5wskjmy" path="res://sprites/bounce.svg" id="9_k83i2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k3d32"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 324, 1)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba5sb"]
+size = Vector2(1150.5, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiqkn"]
+size = Vector2(54, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdetf"]
+size = Vector2(677.777, 174.607)
+
+[sub_resource type="LabelSettings" id="LabelSettings_evmg4"]
+font_size = 40
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_gc5vj")
+
+[node name="DustMotes" type="GPUParticles2D" parent="."]
+position = Vector2(576, 374)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_k3d32")
+texture = ExtResource("7_5tg47")
+lifetime = 10.0
+visibility_rect = Rect2(-576, -374, 1152, 648)
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ground"]
+visible = false
+offset_top = 611.0
+offset_right = 1150.0
+offset_bottom = 651.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(574.75, 631)
+shape = SubResource("RectangleShape2D_ba5sb")
+
+[node name="player" parent="." instance=ExtResource("2_y044e")]
+position = Vector2(47, 575)
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("3_ma5ac")
+
+[node name="level_objects" type="Node2D" parent="."]
+
+[node name="FadeableObject3" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(413, 487)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject4" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(204, 393)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject5" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(413, 301)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject14" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(675, 165)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject10" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(1055, 267)
+scale = Vector2(0.5, 1.22)
+
+[node name="FadeableObject11" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(826, 374)
+scale = Vector2(0.5, 1.22)
+
+[node name="FadeableObject12" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(1055, 521)
+scale = Vector2(0.5, 1.22)
+
+[node name="FadeableObject13" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(957, 32)
+scale = Vector2(0.5, 1.22)
+
+[node name="FadeableObject6" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(204, 214)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject7" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(413, 131)
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeableObject8" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(612, 301)
+scale = Vector2(0.5, 4.5)
+
+[node name="FadeableObject9" parent="level_objects" instance=ExtResource("6_ar7fm")]
+position = Vector2(612, 301)
+scale = Vector2(0.5, 4.5)
+
+[node name="Entrance" type="Sprite2D" parent="level_objects"]
+z_index = -3
+position = Vector2(42, 548)
+scale = Vector2(1.00691, 0.962555)
+texture = ExtResource("5_dn6ev")
+
+[node name="level_exit" type="Area2D" parent="level_objects"]
+z_index = -3
+position = Vector2(1122, 301)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_objects/level_exit"]
+position = Vector2(-67, -269)
+shape = SubResource("RectangleShape2D_hiqkn")
+
+[node name="Exit" type="Sprite2D" parent="level_objects/level_exit"]
+position = Vector2(-64, -278)
+texture = ExtResource("4_jw3cu")
+
+[node name="level_exit2" type="Area2D" parent="level_objects"]
+z_index = -3
+position = Vector2(1122, 301)
+
+[node name="BlueDoor" type="Sprite2D" parent="level_objects/level_exit2"]
+position = Vector2(-69, -42)
+texture = ExtResource("8_lkcq4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="level_objects/level_exit2"]
+position = Vector2(-67, -34)
+shape = SubResource("RectangleShape2D_hiqkn")
+
+[node name="Bounce" type="Area2D" parent="level_objects"]
+
+[node name="Bounce" type="Sprite2D" parent="level_objects/Bounce"]
+position = Vector2(729, 575)
+texture = ExtResource("9_k83i2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_objects/Bounce"]
+position = Vector2(728.5, 601.5)
+rotation = -3.14159
+scale = Vector2(0.09, 0.04009)
+shape = SubResource("RectangleShape2D_pdetf")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1107.0
+offset_top = 2.0
+offset_right = 1147.0
+offset_bottom = 25.0
+label_settings = SubResource("LabelSettings_evmg4")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="level_objects/level_exit" to="LevelManager" method="_on_level_exit_body_entered"]
+[connection signal="body_entered" from="level_objects/level_exit2" to="LevelManager" method="_on_level_exit_body_entered"]
+[connection signal="area_entered" from="level_objects/Bounce" to="." method="_on_bounce_area_entered"]
